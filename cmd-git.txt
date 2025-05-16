@@ -1,0 +1,3 @@
+git add --all                   //ajoute tout tes fichiers qui ont ete modifies
+git commit -m "texte"           //nom du changement
+git push                        //lancement des modifications

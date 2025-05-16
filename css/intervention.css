@@ -203,18 +203,6 @@
     gap: 15px;
   }
 
-  .search-form input {
-    width: 300px;
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    background-color: #222;
-    color: white;
-    margin-right: 10rem;
-}
-
-  
   .logout-btn img {
     width: 30px;
     height: 30px;
@@ -225,147 +213,59 @@
     transition: filter 0.3s ease;
     rotate: 180deg;
   }
-  
-  .logo-container{
-    width: 100%;
-    margin-left: 4rem;
-  }
 
-  .patient-container {
-    margin: 20rem auto 0 auto;
-    background-color: var(--card-background);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-top: 20px;
-    width: 100%;
-    margin-top: 8rem;
-}
-
-.btn-intervention {
-    padding: 5px 10px;
-    background-color: #008000;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-}
-.btn-intervention:hover {
-    background-color: #006400;
-}
-
-.patient-title {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #87CEEB;
-    font-weight: bold;
-}
-
-.patient-title .patient-icon {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-}
-
-.patient-table {
-    width: 100%;
-    border-collapse: collapse;
+.container {
     background-color: white;
+    max-width: 600px;
+    padding: 25px;
     border-radius: 8px;
-    overflow: hidden;
-    table-layout: fixed;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 10rem;
+    margin-left: 27rem;
 }
 
-.patient-table th,
-.patient-table td {
-    vertical-align: middle;
-    padding: 12px 16px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    word-wrap: break-word;
+h2 {
+    margin-bottom: 20px;
 }
 
-.patient-table th {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    font-weight: bold;
+textarea {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.patient-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.patient-table tr:hover {
-    background-color: #f1f1f1;
+button:hover {
+    background-color: #218838;
 }
 
-.patient-table th:nth-child(1),
-.patient-table td:nth-child(1) {
-    width: 10%;
-}
-.patient-table th:nth-child(2),
-.patient-table td:nth-child(2) {
-    width: 10%;
-}
-.patient-table th:nth-child(3),
-.patient-table td:nth-child(3) {
-    width: 5%;
-}
-.patient-table th:nth-child(4){
-  width: 8%;
-}
-.patient-table td:nth-child(4) {
-    width: 6%;
-}
-.patient-table th:nth-child(5),
-.patient-table td:nth-child(5) {
-    width: 22%;
-}
-.patient-table th:nth-child(6),
-.patient-table td:nth-child(6) {
-    width: 10%;
-}
-.patient-table th:nth-child(7),
-.patient-table td:nth-child(7) {
-    width: 22%;
-}
-.patient-table th:nth-child(8),
-.patient-table td:nth-child(8) {
-    width: 8%;
+.btn-retour {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
 }
 
-.patient-table th:nth-child(9),
-.patient-table td:nth-child(9) {
-    width: 10%;
-}
-
-
- :root {
+  :root {
     --background-color: #f2f4f8;
     --text-color: #1a1a1a;
     --sidebar-color: #ffffff;
-    --primary-color: #D3D3D3;
+    --primary-color: #2f80ed;
     --card-background: #ffffff;
 }
 
-body.dark-theme .patient-container{
-    background-color: #212121;
-}
+body
 
-
-body.dark-theme .patient-table td {
-    color: #000;
-    background-color: #fff;
-}
-
-body.dark-theme .deco-img{
-  filter: invert(1);
-}
-
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .search-form input {
       width: 100%;
       margin-right: 0;

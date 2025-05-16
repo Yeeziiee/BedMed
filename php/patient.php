@@ -12,7 +12,7 @@ $stmt->execute([$_SESSION['user_id']]);
 $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Récupérer la liste des patients
-$stmt = $pdo->query("SELECT p.nom, p.prenom, p.age, p.historique, p.motif, p.mobilite, p.date_entree, c.numerochambre AS numerochambre 
+$stmt = $pdo->query("SELECT p.id, p.nom, p.prenom, p.age, p.historique, p.motif, p.mobilite, p.date_entree, c.numerochambre AS numerochambre 
                      FROM Patient p
                      LEFT JOIN Chambre c ON p.id_chambre = c.id_chambre");
 $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -61,6 +61,9 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="header-right">
+            <form class="search-form" action="search.php" method="GET">
+                <input type="text" id="searchInput" name="query" placeholder="Rechercher un patient...">
+            </form>
             <a href="logout.php" class="logout-btn" title="Déconnexion">
                 <img src="../assets/image/deco.png" class="deco-img" alt="Déconnexion">
             </a>
@@ -71,17 +74,18 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <img src="../assets/image/user1.png" alt="Icon" class="patient-icon">
             <span><?= htmlspecialchars($soignant['prenom']) . ' ' . htmlspecialchars($soignant['nom']) ?></span>
         </div>
-        <table class="patient-table">
+        <table id="patientTable" class="patient-table">
             <thead>
                 <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Age</th>
-                    <th>Chambre</th>
-                    <th>Motif d'hospitalisation</th>
-                    <th>Date d'entrée</th>
-                    <th>Historique</th>
-                    <th>Mobilité</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>AGE</th>
+                    <th>CHAMBRE</th>
+                    <th>MOTIF D'HOSPITALISATION</th>
+                    <th>DATE D'ENTREE</th>
+                    <th>HISTORIQUE</th>
+                    <th>MOBILITE</th>
+                    <th>INTERVENTION</th>
                 </tr>
             </thead>
             <tbody>
@@ -95,6 +99,7 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars(substr($ligne['date_entree'], 0, 10)) ?></td>
                         <td><?= htmlspecialchars($ligne['historique']) ?></td>
                         <td><?= htmlspecialchars($ligne['mobilite']) ?></td>
+                        <td><a href="intervention.php?id=<?= urlencode($ligne['id']) ?>" class="btn-intervention">Ajouter</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -102,5 +107,6 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 <script src="../js/darktheme.js"></script>
+<script src="../js/searchbar.js"></script>
 </body>
 </html>
