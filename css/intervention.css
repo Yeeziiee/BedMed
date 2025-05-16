@@ -263,7 +263,13 @@ button:hover {
     --card-background: #ffffff;
 }
 
-body
+body.dark-theme .title-container{
+    color: #000;
+}
+
+body.dark-theme .subtitle-container{
+    color: #000;
+}
 
 @media (max-width: 768px) {
     .search-form input {

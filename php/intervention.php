@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($contenu !== '') {
         $stmt = $pdo->prepare("INSERT INTO Intervention (patient_id, soignant_id, contenu, date) VALUES (?, ?, ?, NOW())");
-        $stmt->execute([$patient_id, $_SESSION['user_id'], $contenu]);
+        $stmt->execute([$id_patient, $_SESSION['user_id'], $contenu]);
 
         // Rediriger après ajout
         header("Location: dashboard.php?ajout=ok");
@@ -86,14 +86,14 @@ $patient = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </header>
     <div class="container">
-        <h2>Intervention pour <?= htmlspecialchars($patient['prenom'] . ' ' . $patient['nom']) ?></h2>
+        <h2 class="title-container">Intervention pour <?= htmlspecialchars($patient['prenom'] . ' ' . $patient['nom']) ?></h2>
 
         <?php if (!empty($erreur)): ?>
             <p class="erreur"><?= htmlspecialchars($erreur) ?></p>
         <?php endif; ?>
 
         <form method="post">
-            <label for="contenu">Contenu de l'intervention :</label><br>
+            <label for="contenu" class="subtitle-container">Contenu de l'intervention :</label><br>
             <textarea name="contenu" id="contenu" rows="6" required></textarea><br><br>
 
             <button type="submit">Enregistrer</button>
