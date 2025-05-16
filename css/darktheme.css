@@ -1,0 +1,127 @@
+/* ---------- Base Styles ---------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sidebar, Header, Footer transitions */
+.sidebar, .header, .footer {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ---------- Light Theme ---------- */
+body.light-theme {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+body.light-theme .sidebar {
+    background-color: #ffffff;
+    color: #222;
+}
+
+body.light-theme .header {
+    background-color: #e0e0e0;
+    color: #222;
+}
+
+body.light-theme .footer {
+    background-color: #e0e0e0;
+    color: #222;
+}
+
+body.light-theme .soignant-name {
+    color: #000;
+  }
+
+body.light-theme .search-form input {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+/* Boutons Light */
+body.light-theme .theme{
+    filter: none;
+}
+
+body.light-theme .toggle-img {
+    filter: none;
+  }
+
+body.light-theme .dashboard-img {
+    filter: none;
+  }
+
+body.light-theme .settings-img{
+    filter: none;
+}
+
+/* ---------- Dark Theme ---------- */
+body.dark-theme {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.dark-theme .sidebar {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-theme .header {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .footer {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Boutons Dark */
+body.dark-theme .theme{
+    filter:invert(1);
+}
+
+body.dark-theme .toggle-img{
+    filter:invert(1);
+}
+
+body.dark-theme .dashboard-img {
+    filter: invert(1);
+  }
+
+body.dark-theme .settings-img{
+    filter: invert(1);
+}
+
+/* ---------- Common Utilities ---------- */
+.btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar {
+    width: 300px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
