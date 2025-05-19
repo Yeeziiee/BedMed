@@ -94,7 +94,10 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($ligne['nom']) ?></td>
                         <td><?= htmlspecialchars($ligne['prenom']) ?></td>
                         <td><?= htmlspecialchars($ligne['age']) ?></td>
-                        <td><?= htmlspecialchars($ligne['numerochambre']) ?></td>
+                        <td>
+                        <a href="chambre.php?numero=<?= urlencode($ligne['numerochambre']) ?>" class="chambre-lien">
+                        <?= htmlspecialchars($ligne['numerochambre']) ?> </a>
+                        </td> 
                         <td><?= htmlspecialchars($ligne['motif']) ?></td>
                         <td><?= htmlspecialchars(substr($ligne['date_entree'], 0, 10)) ?></td>
                         <td><?= htmlspecialchars($ligne['historique']) ?></td>

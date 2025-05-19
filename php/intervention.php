@@ -19,16 +19,19 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contenu = trim($_POST['contenu'] ?? '');
 
-    if ($contenu !== '') {
-        $stmt = $pdo->prepare("INSERT INTO Intervention (patient_id, soignant_id, contenu, date) VALUES (?, ?, ?, NOW())");
-        $stmt->execute([$id_patient, $_SESSION['user_id'], $contenu]);
+    if (!empty($_POST['contenu']) && !empty($_POST['date']) && !empty($_POST['heure'])) {
+    $contenu = $_POST['contenu'];
+    $date = $_POST['date'];
+    $heure = $_POST['heure'];
 
-        // Rediriger après ajout
-        header("Location: dashboard.php?ajout=ok");
-        exit();
-    } else {
-        $erreur = "Le contenu ne peut pas être vide.";
-    }
+    $stmt = $pdo->prepare("INSERT INTO Intervention (patient_id, soignant_id, contenu, date, heure) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$id_patient, $_SESSION['user_id'], $contenu, $date, $heure]);
+
+    header("Location: dashboard.php?ajout=ok");
+    exit();
+} else {
+    $erreur = "Tous les champs sont requis.";
+}
 }
 
 // Récupérer les infos du patient
@@ -93,6 +96,10 @@ $patient = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php endif; ?>
 
         <form method="post">
+            <label for ="date">Date :</label>
+            <input type ="date" name="date" required>
+            <label for="heure">Heure :</label>
+            <input type="time" name="heure" required>
             <label for="contenu" class="subtitle-container">Contenu de l'intervention :</label><br>
             <textarea name="contenu" id="contenu" rows="6" required></textarea><br><br>
 
