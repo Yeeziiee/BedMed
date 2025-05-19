@@ -1,0 +1,59 @@
+.chambre-container {
+    margin: 20rem auto 0 auto;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    width: 40%;
+    margin-top: 8rem;
+}
+
+.temp-red {
+    color: red;
+    font-weight: bold;
+}
+
+.temp-orange {
+    color: orange;
+    font-weight: bold;
+}
+
+.temp-green {
+    color: green;
+    font-weight: bold;
+}
+
+.temp-lightblue {
+    color: rgb(64, 196, 240);
+    font-weight: bold;
+}
+
+.hum-red {
+    color: red;
+    font-weight: bold;
+}
+
+
+.hum-green {
+    color: green;
+    font-weight: bold;
+}
+
+.hum-lightblue {
+    color: rgb(64, 196, 240);
+    font-weight: bold;
+}
+
+body.dark-theme .chambre-container{
+    color: black;
+}
+
+:root {
+    --background-color: #f2f4f8;
+    --text-color: #1a1a1a;
+    --sidebar-color: #ffffff;
+    --primary-color: #D3D3D3;
+    --card-background: #ffffff;
+}
+

@@ -71,9 +71,9 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
             <table class="emploi-table">
                 <thead>
                     <tr>
-                        <th>Jour</th>
-                        <th>Heure Début</th>
-                        <th>Heure Fin</th>
+                        <th>JOUR</th>
+                        <th>HEURE DE DEBUT</th>
+                        <th>HEURE DE FIN</th>
                     </tr>
                 </thead>
                 <tbody>

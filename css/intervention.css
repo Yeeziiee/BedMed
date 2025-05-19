@@ -271,6 +271,14 @@ body.dark-theme .subtitle-container{
     color: #000;
 }
 
+body.dark-theme .date{
+  color: #000;
+}
+
+body.dark-theme .heure{
+  color: #000;
+}
+
 @media (max-width: 768px) {
     .search-form input {
       width: 100%;

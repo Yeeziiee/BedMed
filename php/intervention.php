@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = $_POST['date'];
     $heure = $_POST['heure'];
 
-    $stmt = $pdo->prepare("INSERT INTO Intervention (patient_id, soignant_id, contenu, date, heure) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO Intervention (patient_id, soignant_id, contenu, date, heure_inter) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$id_patient, $_SESSION['user_id'], $contenu, $date, $heure]);
 
     header("Location: dashboard.php?ajout=ok");
@@ -96,12 +96,22 @@ $patient = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php endif; ?>
 
         <form method="post">
-            <label for ="date">Date :</label>
+            <div>
+            <label for ="date" class="date">Date :</label>
             <input type ="date" name="date" required>
-            <label for="heure">Heure :</label>
+            </div>
+
+            <div>
+            <label for="heure" class="heure">Heure :</label>
             <input type="time" name="heure" required>
-            <label for="contenu" class="subtitle-container">Contenu de l'intervention :</label><br>
+            </div>
+
+            <div>
+            <label for="contenu" class="subtitle-container"> Contenu de l'intervention :</label><br>
             <textarea name="contenu" id="contenu" rows="6" required></textarea><br><br>
+            </div> 
+
+            <br>
 
             <button type="submit">Enregistrer</button>
             <a href="patient.php" class="btn-retour">Retour</a>

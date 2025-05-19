@@ -71,17 +71,6 @@ body {
   color: inherit;
 }
 
-.patient{
-  color: #000;
-  font-size: x-large;
-  font-weight: normal;
-}
-
-.patient-icon{
-  width: 5rem;
-  margin-top: 2.3rem;
-}
-
 .dashboard-img {
   width: 35px;
   height: 35px;
@@ -165,10 +154,8 @@ body.dark-theme {
   line-height: 1.2;
 }
 
-
-
 /* Réduire l'espace entre Dashboard et Paramètres */
-.dashboard-btn + .settings-btn + .chambre-btn {
+.dashboard-btn + .settings-btn {
   margin-top: 10px; /* Réduis cette valeur pour que l'écart soit plus petit */
 }
 
@@ -176,18 +163,10 @@ body.dark-theme {
   padding: 10px 20px; /* Réduire le padding général de la sidebar */
 }
 
-.dashboard-btn, .settings-btn, .chambre-btn {
+.dashboard-btn, .settings-btn {
   padding: 4px 6px; /* Réduire l'espace interne dans chaque bouton */
 }
 
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 4rem;
-  width: 100%;
-}
 
 body.light-theme .sidebar {
   background-color: #ffffff;
@@ -235,215 +214,20 @@ header {
   rotate: 180deg;
 }
 
-
-
-/* Cards */
-.cards {
-  display: flex;
-  gap: 100px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 200px; /* Décalage vertical uniquement pour les cartes */
-}
-
-.card:hover{
-  transform: scale(1.05);
-}
-.card {
-    width: 250px;
-    height: 250px;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    overflow: hidden; /*  Très important pour forcer le contenu à ne pas casser la taille */
-}
-
-.alerte {
-  color: white !important;
-  font-size: x-large;
-  font-weight: normal;
-}
-
-.light-grey {
-  background-color: #D3D3D3;
-  border: solid 3px #aaa;
-}
-
-.blue {
-  background-color: #3586FF;
-  border: solid 3px #0669ff;
-}
-
-
-.red {
-background-color: #ce1010;
-border: solid 3px #a10c0c;
-}
-
-.patient-icon{
-  filter: invert(1);
-}
-
-.patient{
-  color: white;
-}
-
-.calendar button {
-  margin: 5px;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ccc;
-  color: #000;
-  font-weight: bold;
-}
-
-.calendar button.active {
-  background-color: #3586FF;
-}
-
-.emploi{
-  color: #000;
-  font-size: x-large;
-  font-weight: normal;
-}
-
-
-.month-year {
-  margin-top: 10px;
-  font-size: large;
-  color: #000;
-}
-
-.chambre{
-  margin-top: 20px;
-}
-
-.chambre-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.chambre-img{
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-}
-
-.chambre-text {
-  font-size: 20px;
-  align-items: center;
-}
-
-.chambre-btn:hover{
-  background-color: rgba(93, 197, 249, 0.3); /* ou autre */
-  border-radius: 6px;
-  transform: scale(1.01);
-
-}
-
-
-/*
-
-.patients-list {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.patients-list div {
-  background: #fff;
-  color: #000;
-  padding: 10px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  margin: 5px;
-}
-*/
-
 .logo-container{
   width: 100%;
   margin-left: 3rem;
-}
-
-/*
-.patient-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.patient-row {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.patient-entry {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.patient-name {
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 5px;
-}
-
-.cp-bubble {
-  background-color: white;
-  color: black;
-  border-radius: 50%;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: bold;
-}
-*/
-
-.alerte-img{
-  width: 4rem;
-  margin-bottom: 3.7rem;
-  filter: invert(1);
 }
 
 body.dark-theme .deco-img{
   filter: invert(1);
 }
 
-body.dark-theme .chambre-img{
-  filter: invert(1);
-}
 
 @media (max-width: 768px) {
   .search-form input {
     width: 100%;
     margin-right: 0;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px; /* réduit un peu l’espace entre les cartes */
   }
 
   .sidebar {

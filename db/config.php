@@ -10,4 +10,17 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+
+
+// Mettre à jour les disponibilités
+$updateDisponibilite = $pdo->prepare("
+    UPDATE Chambre c
+    LEFT JOIN Patient p ON c.id_chambre = p.id_chambre
+    SET c.disponible = CASE 
+        WHEN p.id IS NULL THEN 1 
+        ELSE 0 
+    END
+");
+$updateDisponibilite->execute();
+
 ?>
