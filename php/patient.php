@@ -34,19 +34,26 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <span class="logo-text">BedMed</span>
         </div>
 
-        <div class="dashboard" id="dashboard">
-            <a href="dashboard.php" class="dashboard-btn" title="Dashboard">
-                <img src="../assets/image/dashboard.png" class="dashboard-img" alt="logo dashboard">
-                <span class="dashboard-text">Dashboard </span>    
-            </a>
-        </div>
-        
-        <div class="settings" id="settings">
-            <a href="parametres.php" class="settings-btn" title="settings">
-                <img src="../assets/image/settings.png" class="settings-img" alt="logo settings">
-                <span class="settings-text">Paramètres </span>
-            </a>
-        </div>
+            <div class="dashboard" id="dashboard">
+                <a href="dashboard.php" class="dashboard-btn" title="Dashboard">
+                    <img src="../assets/image/dashboard3.png" class="dashboard-img" alt="logo dashboard">
+                    <span class="dashboard-text">Accueil</span>    
+                </a>
+            </div>
+            
+            <div class="settings" id="settings">
+                <a href="logout.php" class="settings-btn" title="settings">
+                    <img src="../assets/image/deco.png" class="settings-img" alt="deco settings">
+                    <span class="settings-text">Déconnexion</span>
+                </a>
+            </div>
+
+            <div class="chambre" id="chambre">
+                <a href="liste_chambre.php" class="chambre-btn" title="chambre">
+                    <img src="../assets/image/chambre3.png" class="chambre-img" alt="icon chambre">
+                    <span class="chambre-text">Chambres</span>
+                </a>
+            </div>
 
         <div class="theme-toggle" id="theme-toggle">
             <img src="../assets/image/dark-theme.png" alt="darktheme icon" class="theme">

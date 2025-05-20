@@ -58,23 +58,29 @@ $patient = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <div class="dashboard" id="dashboard">
             <a href="dashboard.php" class="dashboard-btn" title="Dashboard">
-                <img src="../assets/image/dashboard.png" class="dashboard-img" alt="logo dashboard">
-                <span class="dashboard-text">Dashboard </span>    
+                <img src="../assets/image/dashboard3.png" class="dashboard-img" alt="logo dashboard">
+                <span class="dashboard-text">Accueil</span>    
             </a>
         </div>
-        
+            
         <div class="settings" id="settings">
-            <a href="parametres.php" class="settings-btn" title="settings">
-                <img src="../assets/image/settings.png" class="settings-img" alt="logo settings">
-                <span class="settings-text">Paramètres </span>
+            <a href="logout.php" class="settings-btn" title="settings">
+                <img src="../assets/image/deco.png" class="settings-img" alt="deco settings">
+                <span class="settings-text">Déconnexion</span>
             </a>
         </div>
 
+        <div class="chambre" id="chambre">
+            <a href="liste_chambre.php" class="chambre-btn" title="chambre">
+                <img src="../assets/image/chambre3.png" class="chambre-img" alt="icon chambre">
+                <span class="chambre-text">Chambres</span>
+            </a>
+        </div>
         <div class="theme-toggle" id="theme-toggle">
             <img src="../assets/image/dark-theme.png" alt="darktheme icon" class="theme">
             <span class="Theme-text">Clair/Sombre </span>
         </div>
-</div>
+    </div>
 
 <div class="main-content">
     <header>

@@ -30,10 +30,9 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
             <span class="logo-text">BedMed</span>
         </div>
 
-        <div class="nav-links">
             <div class="dashboard" id="dashboard">
                 <a href="dashboard.php" class="dashboard-btn" title="Dashboard">
-                    <img src="../assets/image/dashboard.png" class="dashboard-img" alt="logo dashboard">
+                    <img src="../assets/image/dashboard3.png" class="dashboard-img" alt="logo dashboard">
                     <span class="dashboard-text">Accueil</span>    
                 </a>
             </div>
@@ -41,17 +40,16 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="settings" id="settings">
                 <a href="logout.php" class="settings-btn" title="settings">
                     <img src="../assets/image/deco.png" class="settings-img" alt="deco settings">
-                    <span class="settings-text">Déconnexion </span>
+                    <span class="settings-text">Déconnexion</span>
                 </a>
             </div>
 
             <div class="chambre" id="chambre">
                 <a href="liste_chambre.php" class="chambre-btn" title="chambre">
-                    <img src="../assets/image/chambre.png" class="chambre-img" alt="icon chambre">
-                    <span class="chambre-text">Chambre</span>
+                    <img src="../assets/image/chambre3.png" class="chambre-img" alt="icon chambre">
+                    <span class="chambre-text">Chambres</span>
                 </a>
             </div>
-        </div>
 
         <div class="theme-toggle" id="theme-toggle">
             <img src="../assets/image/dark-theme.png" alt="darktheme icon" class="theme">
@@ -75,13 +73,10 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="cards">
             <a href="emploi2.php" class="card light-grey">
                 <h2 class="emploi">Emploi du temps</h2>
-                <div class="calendar">
-                    <button>Lun<br>2</button>
-                    <button class="active">Mar<br>3</button>
-                    <button>Mer<br>4</button>
-                </div>
-                <div class="month-year">Juin | 2025</div>
-            </a>
+                <div class="calendar" id="calendar-buttons"></div>
+                <div class="month-year" id="month-year"></div>
+                </a>
+        
 
             <a href="patient.php" class="card blue">
             <div class="patient-card">
@@ -110,5 +105,6 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
             </a>
     </div>
     <script src="../js/darktheme.js"></script>
+    <script src="../js/jour.js"></script>
 </body>
 </html>

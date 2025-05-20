@@ -61,6 +61,7 @@ body {
 
 .settings{
   margin-top: 20px;
+  margin-left: 2.9rem;
 }
 
 .dashboard-btn {
@@ -112,12 +113,13 @@ body {
 }
 
 .settings-img{
-  width: 35px;
-  height: 35px;
+  width: 33px;
+  height: 33px;
   object-fit: contain;
 }
 
 .settings-text {
+  margin-left: 0.3rem;
   font-size: 20px;
   align-items: center;
 }
@@ -180,14 +182,7 @@ body.dark-theme {
   padding: 4px 6px; /* Réduire l'espace interne dans chaque bouton */
 }
 
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 4rem;
-  width: 100%;
-}
+
 
 body.light-theme .sidebar {
   background-color: #ffffff;
@@ -324,6 +319,7 @@ border: solid 3px #a10c0c;
 
 .chambre{
   margin-top: 20px;
+  margin-left: 1.3rem;
 }
 
 .chambre-btn {

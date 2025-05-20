@@ -60,8 +60,9 @@ body {
 }
 
 .settings{
-  margin-top: 20px;
-}
+    margin-top: 20px;
+    margin-left: 2.9rem;
+  }
 
 .dashboard-btn {
   display: flex;
@@ -92,31 +93,32 @@ body {
   color: #fff;
 }
 
-.settings-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.settings-img{
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-}
-
-.settings-text {
-  font-size: 20px;
-  align-items: center;
-}
-
-.settings-btn:hover{
-  background-color: rgba(93, 197, 249, 0.3); /* ou autre */
-  border-radius: 6px;
-  transform: scale(1.01);
-
-}
+  .settings-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .settings-img{
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+  }
+  
+  .settings-text {
+    margin-left: 0.3rem;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  .settings-btn:hover{
+    background-color: rgba(93, 197, 249, 0.3); /* ou autre */
+    border-radius: 6px;
+    transform: scale(1.01);
+  
+  }
 
 .theme-toggle {
   cursor: pointer;
@@ -155,18 +157,52 @@ body.dark-theme {
 }
 
 /* Réduire l'espace entre Dashboard et Paramètres */
-.dashboard-btn + .settings-btn {
-  margin-top: 10px; /* Réduis cette valeur pour que l'écart soit plus petit */
+  .dashboard-btn + .settings-btn +.chambre-btn{
+    margin-top: 10px; /* Réduis cette valeur pour que l'écart soit plus petit */
+  }
+  
+  .sidebar {
+    padding: 10px 20px; /* Réduire le padding général de la sidebar */
+  }
+  
+  .dashboard-btn, .settings-btn, .chambre-btn{
+    padding: 4px 6px; /* Réduire l'espace interne dans chaque bouton */
+  }
+
+  .chambre{
+  margin-top: 20px;
+  margin-left: 1.3rem;
 }
 
-.sidebar {
-  padding: 10px 20px; /* Réduire le padding général de la sidebar */
+.chambre-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
 }
 
-.dashboard-btn, .settings-btn {
-  padding: 4px 6px; /* Réduire l'espace interne dans chaque bouton */
+.chambre-img{
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
 }
 
+.chambre-text {
+  font-size: 20px;
+  align-items: center;
+}
+
+.chambre-btn:hover{
+  background-color: rgba(93, 197, 249, 0.3); /* ou autre */
+  border-radius: 6px;
+  transform: scale(1.01);
+
+}
+
+body.dark-theme .chambre-img{
+  filter: invert(1);
+}
 
 body.light-theme .sidebar {
   background-color: #ffffff;

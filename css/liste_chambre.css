@@ -1,0 +1,88 @@
+  .search-form input {
+    width: 300px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #222;
+    color: white;
+    margin-right: 10rem;
+}
+
+  .chambre-container {
+    margin: 20rem auto 0 auto;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    width: 60%;
+    margin-top: 8rem;
+}
+
+.chambre-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #87CEEB;
+    font-weight: bold;
+}
+
+.chambre-title .patient-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.chambre-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+.chambre-table th,
+.chambre-table td {
+    vertical-align: middle;
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+.chambre-table th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.chambre-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.chambre-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+:root {
+    --background-color: #f2f4f8;
+    --text-color: #1a1a1a;
+    --sidebar-color: #ffffff;
+    --primary-color: #D3D3D3;
+    --card-background: #ffffff;
+}
+
+
+body.dark-theme .chambre-container{
+    background-color: #212121;
+}
+
+
+body.dark-theme .chambre-table td {
+    color: #000;
+    background-color: #fff;
+}
