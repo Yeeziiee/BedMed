@@ -72,7 +72,7 @@ try {
     }
 
     $id = $soignant['id'];
-    $jour = ucfirst(strftime('%A')); // Lundi, Mardi, etc.
+    $jour = ucfirst((new DateTime())->format('l')); // Ex: Monday
     $heure = date('H:i:s');
 
     // Vérifie la disponibilité
