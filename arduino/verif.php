@@ -1,4 +1,7 @@
+
+
 <?php
+/*
 // Récupération de l'UID du badge
 $uid = $_GET['uid'] ?? null;
 
@@ -50,5 +53,36 @@ if ($stmt->fetch()) {
     echo "OK";
 } else {
     echo "KO";
+*/
+
+
+$uid = strtoupper($_GET['uid']); // Ex: D5D3CF22
+
+try {
+    $pdo = new PDO("mysql:host=bdjiqcyfkuixyubw0fdd-mysql.services.clever-cloud.com;dbname=bdjiqcyfkuixyubw0fdd", "up0gqrwfyet1kt3b", "LjMVU9QGJFxqDutI1C7l");
+
+    // Cherche le soignant par UID
+    $stmt = $pdo->prepare("SELECT id FROM Soignant WHERE REPLACE(UPPER(uid_badge), ' ', '') = :uid");
+    $stmt->execute(['uid' => $uid]);
+    $soignant = $stmt->fetch();
+
+    if (!$soignant) {
+        echo "NON";
+        exit;
+    }
+
+    $id = $soignant['id'];
+    $jour = ucfirst(strftime('%A')); // Lundi, Mardi, etc.
+    $heure = date('H:i:s');
+
+    // Vérifie la disponibilité
+    $stmt2 = $pdo->prepare("SELECT * FROM Emploi_Temps WHERE id_soignant = :id AND jour = :jour AND :heure BETWEEN heure_debut AND heure_fin");
+    $stmt2->execute(['id' => $id, 'jour' => $jour, 'heure' => $heure]);
+
+    echo $stmt2->fetch() ? "OK" : "NON";
+} catch (Exception $e) {
+    echo "ERREUR";
 }
+
 ?>
+
