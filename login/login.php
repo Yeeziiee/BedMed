@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($table == 'Admin') {
                 header("Location: admin_dashboard.php");
             } elseif ($table == 'Soignant') {
-                header("Location: dashboard.php");
+                header("Location: ../accueil/dashboard.php");
             } else {
                 header("Location: patient_dashboard.php");
             }

@@ -31,7 +31,7 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
             <div class="dashboard" id="dashboard">
-                <a href="../acceuil/dashboard.php" class="dashboard-btn" title="Dashboard">
+                <a href="../accueil/dashboard.php" class="dashboard-btn" title="Dashboard">
                     <img src="../assets/image/dashboard3.png" class="dashboard-img" alt="logo dashboard">
                     <span class="dashboard-text">Accueil</span>    
                 </a>

@@ -2,51 +2,43 @@ import serial
 import requests
 import time
 
-# Configuration
-PORT_SERIE = 'COM6'  # À adapter selon ton système (ex : /dev/ttyUSB0 sous Linux)
+PORT_SERIE = 'COM6'  
 VITESSE = 9600
-URL_API = 'http://localhost/arduino/verif.php?uid='
+URL_PHP = 'http://localhost/BedMed/badge/verifier.php?uid='
 
-def nettoyer_uid(brut):
-    # Supprime les espaces et convertit en majuscules
-    return brut.strip().replace(" ", "").upper()
+def nettoyer_uid(ligne):
+    return ligne.replace("UID tag :", "").replace(" ", "").strip().upper()
 
-def verifier_uid(uid):
-    url = URL_API + uid
+def verifier(uid):
     try:
-        response = requests.get(url, timeout=3)
-        return response.text.strip()
+        r = requests.get(URL_PHP + uid, timeout=3)
+        return r.text.strip()
     except Exception as e:
-        print("Erreur lors de l’appel HTTP:", e)
+        print("[ERREUR HTTP] ", e)
         return "ERREUR"
 
 def main():
     try:
         ser = serial.Serial(PORT_SERIE, VITESSE, timeout=1)
-        print("Connexion série établie sur", PORT_SERIE)
-        time.sleep(2)  # Laisse le temps à l’Arduino de démarrer
+        time.sleep(2)
+        print("[INFO] Port série ouvert")
 
         while True:
             ligne = ser.readline().decode('utf-8').strip()
             if ligne.startswith("UID tag :"):
-                print(">> UID reçu :", ligne)
-                uid_hex = nettoyer_uid(ligne.replace("UID tag :", ""))
-                print(">> UID nettoyé :", uid_hex)
+                print("-> UID reçu :", ligne)
+                uid = nettoyer_uid(ligne)
+                print("-> UID nettoyé :", uid)
 
-                resultat = verifier_uid(uid_hex)
-                print(">> Résultat :", resultat)
+                resultat = verifier(uid)
+                print("-> Résultat :", resultat)
 
-                # (Optionnel) Tu peux renvoyer le résultat à l’Arduino :
-                # ser.write((resultat + '\n').encode())
+                ser.write((resultat + '\n').encode())
 
-    except serial.SerialException:
-        print(f"Erreur : port série {PORT_SERIE} inaccessible.")
     except KeyboardInterrupt:
-        print("Arrêt manuel.")
+        print("Arrêté par l'utilisateur.")
     finally:
-        if 'ser' in locals() and ser.is_open:
-            ser.close()
-            print("Port série fermé.")
+        ser.close()
 
 if __name__ == '__main__':
     main()

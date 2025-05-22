@@ -55,33 +55,79 @@ if ($stmt->fetch()) {
     echo "KO";
 */
 
+date_default_timezone_set('Europe/Paris');
 
-$uid = strtoupper($_GET['uid']); // Ex: D5D3CF22
+
+// Active l'affichage des erreurs pour le débogage
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// 🔹 Vérification du paramètre 'uid'
+$uid = isset($_GET['uid']) ? strtoupper($_GET['uid']) : '';
+if ($uid === '') {
+    echo "UID manquant";
+    exit;
+}
 
 try {
-    $pdo = new PDO("mysql:host=bdjiqcyfkuixyubw0fdd-mysql.services.clever-cloud.com;dbname=bdjiqcyfkuixyubw0fdd", "up0gqrwfyet1kt3b", "LjMVU9QGJFxqDutI1C7l");
+    // 🔹 Connexion à la base de données
+    $pdo = new PDO(
+        "mysql:host=bdjiqcyfkuixyubw0fdd-mysql.services.clever-cloud.com;dbname=bdjiqcyfkuixyubw0fdd",
+        "up0gqrwfyet1kt3b",
+        "LjMVU9QGJFxqDutI1C7l"
+    );
 
-    // Cherche le soignant par UID
+    // 🔹 Récupération du soignant par UID
     $stmt = $pdo->prepare("SELECT id FROM Soignant WHERE REPLACE(UPPER(uid_badge), ' ', '') = :uid");
     $stmt->execute(['uid' => $uid]);
     $soignant = $stmt->fetch();
 
     if (!$soignant) {
-        echo "NON";
+        echo "NON"; // UID inconnu
         exit;
     }
 
-    $id = $soignant['id'];
-    $jour = ucfirst((new DateTime())->format('l')); // Ex: Monday
-    $heure = date('H:i:s');
+    $id_soignant = $soignant['id'];
 
-    // Vérifie la disponibilité
-    $stmt2 = $pdo->prepare("SELECT * FROM Emploi_Temps WHERE id_soignant = :id AND jour = :jour AND :heure BETWEEN heure_debut AND heure_fin");
-    $stmt2->execute(['id' => $id, 'jour' => $jour, 'heure' => $heure]);
+    // 🔹 Obtenir le jour et l’heure actuels
+    $jours = [
+        'Monday' => 'Lundi',
+        'Tuesday' => 'Mardi',
+        'Wednesday' => 'Mercredi',
+        'Thursday' => 'Jeudi',
+        'Friday' => 'Vendredi',
+        'Saturday' => 'Samedi',
+        'Sunday' => 'Dimanche',
+    ];
+    $now = new DateTime();
+    $jour_en = $now->format('l');
+    $jour = $jours[$jour_en];
+    $heure = $now->format('H:i:s');
+    echo "[DEBUG] Heure actuelle : $heure, Jour : $jour<br>";
+
+
+    // 🔹 Log interne pour vérification
+    file_put_contents("log_verification.txt", "[$heure][$jour] UID=$uid, ID=$id_soignant\n", FILE_APPEND);
+
+    // 🔹 Vérifier l’emploi du temps avec comparaison explicite
+    $stmt2 = $pdo->prepare("
+        SELECT * FROM Emploi_Temps 
+        WHERE id_soignant = :id 
+          AND jour = :jour 
+          AND TIME(:heure) >= heure_debut 
+          AND TIME(:heure) <= heure_fin
+    ");
+    $stmt2->execute([
+        'id' => $id_soignant,
+        'jour' => $jour,
+        'heure' => $heure
+    ]);
 
     echo $stmt2->fetch() ? "OK" : "NON";
+
 } catch (Exception $e) {
     echo "ERREUR";
+    file_put_contents("log_verification.txt", "[ERREUR] " . $e->getMessage() . "\n", FILE_APPEND);
 }
 
 ?>

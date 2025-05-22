@@ -38,14 +38,14 @@ $soignant = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
             
             <div class="settings" id="settings">
-                <a href="logout.php" class="settings-btn" title="settings">
+                <a href="../logout/logout.php" class="settings-btn" title="settings">
                     <img src="../assets/image/deco.png" class="settings-img" alt="deco settings">
                     <span class="settings-text">Déconnexion</span>
                 </a>
             </div>
 
             <div class="chambre" id="chambre">
-                <a href="liste_chambre.php" class="chambre-btn" title="chambre">
+                <a href="../chambre/liste_chambre.php" class="chambre-btn" title="chambre">
                     <img src="../assets/image/chambre3.png" class="chambre-img" alt="icon chambre">
                     <span class="chambre-text">Chambres</span>
                 </a>
